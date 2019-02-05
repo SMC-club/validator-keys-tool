@@ -1,18 +1,18 @@
 # Validator Keys Tool Guide
 
 This guide explains how to set up a validator so its public key does not have to
-change if the smcd config and/or server are compromised.
+change if the smrd config and/or server are compromised.
 
 A validator uses a public/private key pair. The validator is identified by the
 public key. The private key should be tightly controlled. It is used to:
 
-*   sign tokens authorizing a smcd server to run as the validator identified
+*   sign tokens authorizing a smrd server to run as the validator identified
     by this public key.
 *   sign revocations indicating that the private key has been compromised and
     the validator public key should no longer be trusted.
 
 Each new token invalidates all previous tokens for the validator public key.
-The current token needs to be present in the smcd config file.
+The current token needs to be present in the smrd config file.
 
 Servers that trust the validator will adapt automatically when the token
 changes.
@@ -28,7 +28,7 @@ its key pair:
 
 Sample output:
 ```
-  Validator keys stored in /home/ubuntu/.smc/validator-keys.json
+  Validator keys stored in /home/ubuntu/.smr/validator-keys.json
 ```
 
 Keep the key file in a secure but recoverable location, such as an encrypted
@@ -47,7 +47,7 @@ validator token:
 Sample output:
 
 ```
-  Update smcd.cfg file with these values:
+  Update smrd.cfg file with these values:
 
   # validator public key: 59NJ7tuhPoEnfAff9svpF1es6zrbgXmVaE1YiJXhXj1DPL2C9pL3
 
@@ -62,10 +62,10 @@ Sample output:
   MUQ2OEIwNzU0RjRENjZCMUUyMTAyNCJ9
 ```
 
-For a new validator, add the [validator_token] value to the smcd config file.
+For a new validator, add the [validator_token] value to the smrd config file.
 For a pre-existing validator, replace the old [validator_token] value with the
 newly generated one. A valid config file may only contain one [validator_token]
-value. After the config is updated, restart smcd.
+value. After the config is updated, restart smrd.
 
 There is a hard limit of 4,294,967,293 tokens that can be generated for a given
 validator key pair.
@@ -85,7 +85,7 @@ Sample output:
 ```
   WARNING: This will revoke your validator keys!
 
-  Update smcd.cfg file with these values and restart smcd:
+  Update smrd.cfg file with these values and restart smrd:
 
   # validator public key: 59NJ7tuhPoEnfAff9svpF1es6zrbgXmVaE1YiJXhXj1DPL2C9pL3
 
@@ -96,7 +96,7 @@ Sample output:
 ```
 
 Add the `[validator_key_revocation]` value to this validator's config and
-restart smcd. Rename the old key file and generate new [validator keys](#validator-keys) and
+restart smrd. Rename the old key file and generate new [validator keys](#validator-keys) and
 a corresponding [validator token](#validator-token).
 
 ## Signing data

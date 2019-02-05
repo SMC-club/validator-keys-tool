@@ -1,20 +1,20 @@
 # validator-keys-tool
 
-SMC validator key generation tool
+SMR validator key generation tool
 
 ## Table of contents
 
 * [Dependencies](#dependencies)
-  * [smc-libpp submodule](#smc-libpp-submodule)
+  * [smr-libpp submodule](#smr-libpp-submodule)
   * [Other dependencies](#other-dependencies)
 * [Build and run](#build-and-run)
 * [Guide](#guide)
 
 ## Dependencies
 
-### smc-libpp submodule
+### smr-libpp submodule
 
-This includes a git submodule to the smc-libpp source code, which is not cloned by default. To get the smc-libpp source, either clone this repository using
+This includes a git submodule to the smr-libpp source code, which is not cloned by default. To get the smr-libpp source, either clone this repository using
 ```
 $ git clone --recursive <location>
 ```
